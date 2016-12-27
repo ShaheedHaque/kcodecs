@@ -57,7 +57,7 @@ def local_function_rules():
 
 def qualify_enum_initialiser(container, function, parameter, sip, matcher):
     """Enums in initialisers need to be fully qualified."""
-    sip["init"] = container.spelling + "::" + sip["init"]
+    sip["init"] = rules_engine._parents(function) + "::" + sip["init"]
 
 def local_parameter_rules():
     return [
